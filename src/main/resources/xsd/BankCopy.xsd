@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="BankCopy" type="BankCopyType"/>
+
+    <xs:complexType name="BankCopyType">
+        <xs:sequence>
+            <xs:element name="Clients" type="ClientType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="UID" type="UIDType"/>
+    </xs:complexType>
+
+    <xs:simpleType name="UIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{6}-[0-9]{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ClientType">
+        <xs:attribute name="INN" type="xs:int"/>
+        <xs:attribute name="SNILS" type="xs:string"/>
+        <xs:attribute name="passportNumber" type="xs:int"/>
+    </xs:complexType>
+
+</xs:schema>
